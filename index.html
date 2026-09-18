@@ -1,1566 +1,1528 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>FOR YOU. — Edición 001</title>
-  <meta name="description" content="FOR YOU. — Edición 001. Una camiseta. Cuatro creadores.">
-
-  <style>
-    :root {
-      --cream: #F3F0E7;
-      --black: #12110E;
-      --red: #F21B0C;
-      --muted: #68635A;
-      --border: #D8D5CC;
-      --white: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--cream);
-      color: var(--black);
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    button,
-    a {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    section {
-      scroll-margin-top: 100px;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .header {
-      width: 100%;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    .header-inner {
-      width: min(1400px, calc(100% - 48px));
-      min-height: 78px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      font-size: clamp(28px, 3vw, 42px);
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -2.5px;
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: var(--red);
-    }
-
-    .cart-button {
-      border: 1px solid var(--black);
-      background: transparent;
-      color: var(--black);
-      min-height: 44px;
-      padding: 0 15px 0 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-    }
-
-    .cart-button:hover {
-      background: var(--black);
-      color: var(--cream);
-    }
-
-    .cart-count {
-      width: 23px;
-      height: 23px;
-      display: grid;
-      place-items: center;
-      background: var(--red);
-      color: var(--white);
-      border-radius: 50%;
-      font-size: 11px;
-      font-weight: 900;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      width: min(1400px, calc(100% - 48px));
-      margin: 0 auto;
-      min-height: calc(100vh - 78px);
-      padding: clamp(55px, 8vw, 120px) 0;
-      display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-      gap: clamp(35px, 6vw, 100px);
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--red);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 24px;
-    }
-
-    .hero-title {
-      font-size: clamp(72px, 11vw, 175px);
-      line-height: 0.82;
-      font-weight: 900;
-      letter-spacing: -7px;
-      text-transform: uppercase;
-      margin-bottom: 42px;
-    }
-
-    .hero-title span {
-      display: block;
-    }
-
-    .hero-copy {
-      max-width: 470px;
-      color: var(--muted);
-      font-size: clamp(16px, 1.4vw, 19px);
-      line-height: 1.55;
-      margin-bottom: 34px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      min-height: 52px;
-      padding: 0 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--black);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 1.3px;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      border-color: var(--red);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: var(--black);
-      border-color: var(--black);
-    }
-
-    .btn-secondary {
-      background: transparent;
-    }
-
-    .btn-secondary:hover {
-      background: var(--black);
-      color: var(--cream);
-    }
-
-    .hero-image-wrap {
-      min-width: 0;
-    }
-
-    .hero-image {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      filter: saturate(0.85);
-    }
-
-    .image-caption {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      border-bottom: 1px solid var(--black);
-      padding: 11px 0;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.3px;
-    }
-
-    /* =========================
-       MARQUEE
-    ========================= */
-
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-      background: var(--black);
-      color: var(--cream);
-      border-top: 1px solid var(--black);
-      border-bottom: 1px solid var(--black);
-    }
-
-    .marquee-track {
-      width: max-content;
-      display: flex;
-      padding: 17px 0;
-      animation: marquee 28s linear infinite;
-    }
-
-    .marquee-item {
-      white-space: nowrap;
-      font-size: clamp(13px, 1.4vw, 17px);
-      font-weight: 900;
-      letter-spacing: 2px;
-      padding-right: 35px;
-    }
-
-    .marquee-item span {
-      color: var(--red);
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* =========================
-       PRODUCT
-    ========================= */
-
-    .product {
-      width: min(1400px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: clamp(75px, 10vw, 140px) 0;
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(350px, 0.85fr);
-      gap: clamp(40px, 8vw, 120px);
-      border-top: 1px solid var(--black);
-    }
-
-    .gallery {
-      min-width: 0;
-    }
-
-    .main-image {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      background: #ddd;
-    }
-
-    .thumbnails {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .thumbnail {
-      border: 1px solid var(--border);
-      background: transparent;
-      padding: 0;
-      transition: border-color 0.2s ease;
-    }
-
-    .thumbnail:hover,
-    .thumbnail.active {
-      border: 2px solid var(--black);
-    }
-
-    .thumbnail img {
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
-
-    .product-info {
-      align-self: start;
-      position: sticky;
-      top: 115px;
-    }
-
-    .product-label {
-      color: var(--red);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-
-    .product-title {
-      font-size: clamp(42px, 5vw, 76px);
-      line-height: 0.88;
-      font-weight: 900;
-      letter-spacing: -3px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .product-description {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 550px;
-      margin-bottom: 30px;
-    }
-
-    .price {
-      font-size: 25px;
-      font-weight: 900;
-      margin-bottom: 30px;
-    }
-
-    .size-title {
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1.6px;
-      margin-bottom: 10px;
-    }
-
-    .sizes {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      border-top: 1px solid var(--black);
-      border-left: 1px solid var(--black);
-      margin-bottom: 18px;
-    }
-
-    .size {
-      min-height: 45px;
-      border: 0;
-      border-right: 1px solid var(--black);
-      border-bottom: 1px solid var(--black);
-      background: transparent;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .size:hover,
-    .size.active {
-      background: var(--black);
-      color: var(--cream);
-    }
-
-    .add-cart {
-      width: 100%;
-      min-height: 58px;
-      border: 1px solid var(--red);
-      background: var(--red);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 1.3px;
-      transition: 0.2s ease;
-    }
-
-    .add-cart:hover {
-      background: var(--black);
-      border-color: var(--black);
-    }
-
-    .shipping-info {
-      margin-top: 25px;
-      border-top: 1px solid var(--border);
-    }
-
-    .shipping-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 11px;
-    }
-
-    .shipping-row span:last-child {
-      color: var(--muted);
-      text-align: right;
-    }
-
-    /* =========================
-       CREATORS
-    ========================= */
-
-    .creators {
-      width: min(1400px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: clamp(75px, 10vw, 140px) 0;
-      border-top: 1px solid var(--black);
-    }
-
-    .creators-header {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 50px;
-      margin-bottom: 60px;
-    }
-
-    .section-label {
-      color: var(--red);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-
-    .creators-title {
-      font-size: clamp(48px, 7vw, 105px);
-      line-height: 0.85;
-      letter-spacing: -4px;
-      font-weight: 900;
-      text-transform: uppercase;
-      max-width: 850px;
-    }
-
-    .creators-intro {
-      grid-column: 2;
-      max-width: 550px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.55;
-      margin-top: -25px;
-    }
-
-    .creator-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .creator-card {
-      border-top: 1px solid var(--black);
-      padding-top: 15px;
-    }
-
-    .creator-number {
-      color: var(--red);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      margin-bottom: 55px;
-    }
-
-    .creator-initials {
-      font-size: clamp(55px, 7vw, 105px);
-      line-height: 0.8;
-      font-weight: 900;
-      letter-spacing: -5px;
-      margin-bottom: 35px;
-    }
-
-    .creator-name {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 7px;
-    }
-
-    .creator-role {
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    .footer {
-      background: var(--black);
-      color: var(--cream);
-      padding: 70px 0 25px;
-    }
-
-    .footer-inner {
-      width: min(1400px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      padding-bottom: 65px;
-    }
-
-    .footer-logo {
-      font-size: clamp(70px, 13vw, 190px);
-      line-height: 0.75;
-      letter-spacing: -8px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .footer-logo span {
-      color: var(--red);
-    }
-
-    .footer-creators {
-      color: #aaa59b;
-      font-size: 13px;
-      margin-top: 25px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .footer-links a:hover {
-      color: var(--red);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #37352f;
-      padding-top: 20px;
-      color: #77736b;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1.3px;
-    }
-
-    /* =========================
-       CART
-    ========================= */
-
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(18, 17, 14, 0.45);
-      z-index: 100;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.25s ease;
-    }
-
-    .overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .cart-panel {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: min(470px, 100%);
-      height: 100%;
-      background: var(--cream);
-      color: var(--black);
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .overlay.open .cart-panel {
-      transform: translateX(0);
-    }
-
-    .cart-header {
-      min-height: 78px;
-      border-bottom: 1px solid var(--border);
-      padding: 0 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .cart-title {
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-    }
-
-    .close-cart {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--black);
-      background: transparent;
-      font-size: 18px;
-    }
-
-    .close-cart:hover {
-      background: var(--black);
-      color: var(--cream);
-    }
-
-    .cart-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 25px;
-    }
-
-    .empty-cart {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .cart-item {
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      gap: 14px;
-      padding-bottom: 18px;
-      margin-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cart-item img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-    }
-
-    .cart-item-name {
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .cart-item-details {
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    .cart-item-price {
-      font-size: 13px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .remove-item {
-      margin-top: 10px;
-      border: 0;
-      background: none;
-      padding: 0;
-      color: var(--red);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .cart-footer {
-      border-top: 1px solid var(--black);
-      padding: 22px 25px 25px;
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 15px;
-    }
-
-    .checkout-button {
-      width: 100%;
-      min-height: 54px;
-      border: 1px solid var(--red);
-      background: var(--red);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 1.3px;
-    }
-
-    .checkout-button:hover {
-      background: var(--black);
-      border-color: var(--black);
-    }
-
-    /* =========================
-       TABLET
-    ========================= */
-
-    @media (max-width: 950px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-content {
-        max-width: 800px;
-      }
-
-      .hero-image-wrap {
-        max-width: 750px;
-        margin-left: auto;
-      }
-
-      .product {
-        grid-template-columns: 1fr;
-      }
-
-      .product-info {
-        position: static;
-      }
-
-      .creators-header {
-        grid-template-columns: 1fr;
-      }
-
-      .creators-intro {
-        grid-column: auto;
-        margin-top: 0;
-      }
-
-      .creator-grid {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 45px;
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 600px) {
-      .header-inner,
-      .hero,
-      .product,
-      .creators,
-      .footer-inner {
-        width: min(100% - 28px, 1400px);
-      }
-
-      .header-inner {
-        min-height: 68px;
-      }
-
-      .logo {
-        font-size: 28px;
-        letter-spacing: -1.8px;
-      }
-
-      .cart-button {
-        min-height: 40px;
-        padding: 0 11px;
-        font-size: 10px;
-      }
-
-      .cart-count {
-        width: 21px;
-        height: 21px;
-      }
-
-      .hero {
-        padding: 55px 0 70px;
-        gap: 45px;
-      }
-
-      .hero-title {
-        font-size: clamp(65px, 22vw, 105px);
-        letter-spacing: -5px;
-        margin-bottom: 32px;
-      }
-
-      .hero-copy {
-        font-size: 15px;
-      }
-
-      .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .image-caption {
-        font-size: 8px;
-      }
-
-      .product {
-        padding: 70px 0;
-        gap: 45px;
-      }
-
-      .product-title {
-        font-size: 49px;
-        letter-spacing: -2.5px;
-      }
-
-      .sizes {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .shipping-row {
-        font-size: 10px;
-      }
-
-      .creators {
-        padding: 70px 0;
-      }
-
-      .creators-title {
-        font-size: 53px;
-        letter-spacing: -2.5px;
-      }
-
-      .creators-intro {
-        font-size: 15px;
-      }
-
-      .creator-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px 12px;
-      }
-
-      .creator-number {
-        margin-bottom: 40px;
-      }
-
-      .creator-initials {
-        font-size: 64px;
-        margin-bottom: 25px;
-        letter-spacing: -4px;
-      }
-
-      .creator-name {
-        font-size: 15px;
-      }
-
-      .footer {
-        padding-top: 55px;
-      }
-
-      .footer-top {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-bottom: 50px;
-      }
-
-      .footer-logo {
-        font-size: 82px;
-        letter-spacing: -5px;
-      }
-
-      .footer-links {
-        align-items: flex-start;
-      }
-
-      .cart-panel {
-        width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOR YOU. — Edición 001</title>
+
+<style>
+:root{
+  --cream:#f3eee4;
+  --black:#11100e;
+  --red:#ef1b0b;
+  --muted:#68635d;
+  --line:#d5d0c7;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--cream);
+  color:var(--black);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  font:inherit;
+  cursor:pointer;
+}
+
+img{
+  display:block;
+  width:100%;
+}
+
+section{
+  scroll-margin-top:90px;
+}
+
+/* HEADER */
+
+.header{
+  height:78px;
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  background:rgba(243,238,228,.98);
+  z-index:20;
+}
+
+.header-inner{
+  width:min(1400px,calc(100% - 52px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+}
+
+.logo i{
+  font-style:normal;
+  color:var(--red);
+}
+
+.cart-btn{
+  height:44px;
+  padding:0 20px;
+  border:1px solid var(--black);
+  background:transparent;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.cart-btn:hover{
+  background:var(--black);
+  color:var(--cream);
+}
+
+/* HERO */
+
+.hero{
+  width:min(1400px,calc(100% - 52px));
+  margin:auto;
+  padding:76px 0 88px;
+  display:grid;
+  grid-template-columns:1fr 1.02fr;
+  gap:70px;
+  align-items:center;
+}
+
+.kicker{
+  color:#bd281c;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:27px;
+}
+
+.hero h1{
+  font-size:clamp(78px,11vw,158px);
+  line-height:.78;
+  letter-spacing:-7px;
+  font-weight:900;
+  margin-bottom:44px;
+}
+
+.hero p{
+  max-width:520px;
+  color:var(--muted);
+  font-size:19px;
+  line-height:1.55;
+  margin-bottom:38px;
+}
+
+.actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
+}
+
+.btn{
+  min-width:292px;
+  height:69px;
+  border:1px solid var(--black);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.btn.red{
+  background:var(--red);
+  border-color:var(--red);
+  color:white;
+}
+
+.btn.red:hover{
+  background:var(--black);
+  border-color:var(--black);
+}
+
+.btn.out:hover{
+  background:var(--black);
+  color:var(--cream);
+}
+
+.hero-photo{
+  aspect-ratio:459/573;
+  object-fit:cover;
+}
+
+.caption{
+  font-size:11px;
+  letter-spacing:3px;
+  color:#625d56;
+  margin-top:18px;
+}
+
+/* MARQUEE */
+
+.marquee{
+  background:var(--black);
+  color:var(--cream);
+  overflow:hidden;
+  border-block:1px solid var(--black);
+}
+
+.track{
+  width:max-content;
+  display:flex;
+  animation:scroll 26s linear infinite;
+}
+
+.track span{
+  padding:18px 35px;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
+  white-space:nowrap;
+}
+
+.track b{
+  color:var(--red);
+}
+
+@keyframes scroll{
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* PRODUCT */
+
+.product{
+  width:min(1400px,calc(100% - 52px));
+  margin:auto;
+  padding:90px 0 94px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:70px;
+}
+
+.gallery-main{
+  aspect-ratio:1;
+  object-fit:cover;
+}
+
+.thumbs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:14px;
+}
+
+.thumb{
+  border:1px solid var(--line);
+  background:transparent;
+  padding:0;
+}
+
+.thumb.active{
+  border:2px solid var(--black);
+}
+
+.thumb img{
+  aspect-ratio:1;
+  object-fit:cover;
+}
+
+.info{
+  padding-top:3px;
+}
+
+.label{
+  color:#bd281c;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:24px;
+}
+
+.info h2{
+  font-size:clamp(46px,5.6vw,75px);
+  line-height:.86;
+  letter-spacing:-3.5px;
+  font-weight:900;
+  margin-bottom:29px;
+}
+
+.info p{
+  max-width:580px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.65;
+  margin-bottom:31px;
+}
+
+.price{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1px;
+  margin-bottom:48px;
+}
+
+.size-head{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:15px;
+  font-size:13px;
+}
+
+.size-head strong{
+  letter-spacing:3px;
+  font-size:12px;
+}
+
+.size-head a{
+  color:var(--muted);
+  text-decoration:underline;
+}
+
+.sizes{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px;
+  margin-bottom:22px;
+}
+
+.size{
+  height:60px;
+  border:1px solid #c8c2b9;
+  background:transparent;
+  font-size:15px;
+}
+
+.size.active{
+  background:#302d2a;
+  color:#fff;
+  border-color:#302d2a;
+}
+
+.add{
+  width:100%;
+  height:68px;
+  background:var(--red);
+  border:0;
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.add:hover{
+  background:var(--black);
+}
+
+.details{
+  border-top:1px solid var(--line);
+  margin-top:41px;
+  padding-top:10px;
+}
+
+.details p{
+  font-size:15px;
+  line-height:1.8;
+  margin:0;
+  color:var(--muted);
+}
+
+/* CREATORS */
+
+.creators{
+  border-top:1px solid var(--line);
+  width:100%;
+  padding:88px max(26px,calc((100% - 1400px)/2)) 96px;
+}
+
+.creators .label{
+  margin-bottom:28px;
+}
+
+.creators h2{
+  font-size:clamp(55px,7vw,95px);
+  line-height:.86;
+  letter-spacing:-4px;
+  font-weight:900;
+  max-width:900px;
+  margin-bottom:32px;
+}
+
+.intro{
+  max-width:690px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:58px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  border:1px solid #d1cbc2;
+  padding:32px;
+  background:rgba(255,255,255,.08);
+  min-height:300px;
+}
+
+.initials{
+  width:74px;
+  height:74px;
+  border:1px solid var(--black);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  font-weight:900;
+  margin-bottom:27px;
+}
+
+.card h3{
+  font-size:18px;
+  line-height:1.35;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:13px;
+  color:var(--muted);
+  letter-spacing:2.5px;
+  line-height:1.55;
+}
+
+/* FOOTER */
+
+.footer{
+  background:#11100e;
+  color:var(--cream);
+  padding:65px max(26px,calc((100% - 1400px)/2)) 25px;
+}
+
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  padding-bottom:70px;
+}
+
+.footer-logo{
+  font-size:clamp(70px,11vw,145px);
+  font-weight:900;
+  letter-spacing:-6px;
+  line-height:.75;
+}
+
+.footer-logo i{
+  font-style:normal;
+  color:var(--red);
+}
+
+.footer-names{
+  color:#9c9890;
+  margin-top:25px;
+  font-size:16px;
+}
+
+.footer-links{
+  display:flex;
+  gap:38px;
+  font-size:16px;
+}
+
+.footer-links a:hover{
+  color:var(--red);
+}
+
+.copy{
+  border-top:1px solid #35332f;
+  padding-top:22px;
+  color:#77736d;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+/* CART */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:100;
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+}
+
+.overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.cart{
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width:min(460px,100%);
+  background:var(--cream);
+  transform:translateX(100%);
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+}
+
+.overlay.open .cart{
+  transform:translateX(0);
+}
+
+.cart-head{
+  height:78px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 25px;
+}
+
+.cart-head h3{
+  font-size:20px;
+}
+
+.close{
+  width:40px;
+  height:40px;
+  background:none;
+  border:1px solid var(--black);
+  font-size:20px;
+}
+
+.cart-body{
+  flex:1;
+  overflow:auto;
+  padding:25px;
+}
+
+.empty{
+  color:var(--muted);
+}
+
+.item{
+  display:grid;
+  grid-template-columns:75px 1fr auto;
+  gap:14px;
+  padding-bottom:18px;
+  margin-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+
+.item img{
+  width:75px;
+  height:75px;
+  object-fit:cover;
+}
+
+.item strong{
+  font-size:13px;
+}
+
+.item small{
+  display:block;
+  color:var(--muted);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.remove{
+  border:0;
+  background:none;
+  color:var(--red);
+  font-size:10px;
+  font-weight:900;
+  margin-top:10px;
+}
+
+.item-price{
+  font-weight:900;
+  font-size:13px;
+}
+
+.cart-bottom{
+  border-top:1px solid var(--black);
+  padding:22px 25px;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.checkout{
+  height:56px;
+  width:100%;
+  border:0;
+  background:var(--red);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+/* TABLET */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:60px;
+  }
+
+  .hero-photo{
+    max-width:700px;
+    margin:auto;
+  }
+
+  .product{
+    grid-template-columns:1fr;
+  }
+
+  .info{
+    padding-top:0;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .product{
+    padding-top:70px;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .header{
+    height:68px;
+  }
+
+  .header-inner,
+  .hero,
+  .product{
+    width:calc(100% - 52px);
+  }
+
+  .logo{
+    font-size:23px;
+  }
+
+  .cart-btn{
+    height:44px;
+    padding:0 18px;
+  }
+
+  .hero{
+    padding:72px 0 58px;
+    gap:54px;
+  }
+
+  .kicker{
+    font-size:11px;
+    letter-spacing:3px;
+  }
+
+  .hero h1{
+    font-size:22vw;
+    letter-spacing:-4px;
+    margin-bottom:40px;
+  }
+
+  .hero p{
+    font-size:17px;
+    line-height:1.55;
+    margin-bottom:38px;
+  }
+
+  .btn{
+    min-width:292px;
+    width:292px;
+    height:69px;
+  }
+
+  .hero-photo{
+    width:100%;
+  }
+
+  .caption{
+    font-size:10px;
+    letter-spacing:2.5px;
+  }
+
+  .track span{
+    font-size:12px;
+    padding:17px 25px;
+  }
+
+  .product{
+    padding:33px 0 88px;
+    gap:48px;
+  }
+
+  .gallery-main{
+    aspect-ratio:1;
+  }
+
+  .thumbs{
+    gap:16px;
+    margin-top:16px;
+  }
+
+  .label{
+    font-size:11px;
+    letter-spacing:3px;
+    margin-bottom:25px;
+  }
+
+  .info h2{
+    font-size:47px;
+    letter-spacing:-2.5px;
+  }
+
+  .info p{
+    font-size:17px;
+    line-height:1.75;
+  }
+
+  .price{
+    font-size:38px;
+    margin:36px 0 47px;
+  }
+
+  .sizes{
+    gap:10px;
+  }
+
+  .size{
+    height:60px;
+  }
+
+  .details{
+    margin-top:40px;
+    padding-top:13px;
+  }
+
+  .details p{
+    font-size:15px;
+    line-height:2;
+  }
+
+  .creators{
+    padding:88px 26px 83px;
+  }
+
+  .creators h2{
+    font-size:48px;
+    letter-spacing:-2.5px;
+    line-height:.9;
+  }
+
+  .intro{
+    font-size:17px;
+    margin-bottom:56px;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+
+  .card{
+    min-height:258px;
+    padding:31px 32px;
+  }
+
+  .initials{
+    width:74px;
+    height:74px;
+    margin-bottom:26px;
+  }
+
+  .card h3{
+    font-size:17px;
+  }
+
+  .card p{
+    font-size:12px;
+    letter-spacing:2px;
+  }
+
+  .footer{
+    padding:66px 26px 25px;
+  }
+
+  .footer-top{
+    display:block;
+    padding-bottom:65px;
+  }
+
+  .footer-logo{
+    font-size:53px;
+    letter-spacing:-3px;
+  }
+
+  .footer-names{
+    font-size:16px;
+    margin-top:24px;
+  }
+
+  .footer-links{
+    gap:30px;
+    margin-top:50px;
+    font-size:16px;
+  }
+
+  .copy{
+    font-size:9px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<header class="header">
+  <div class="header-inner">
 
-  <header class="header">
-    <div class="header-inner">
+    <a class="logo" href="#inicio">
+      FOR YOU<i>.</i>
+    </a>
 
-      <a href="#inicio" class="logo">
-        FOR YOU<span>.</span>
+    <button class="cart-btn" onclick="openCart()">
+      CARRITO <span id="count"></span>
+    </button>
+
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div>
+
+    <div class="kicker">
+      EDICIÓN 001 · 2026
+    </div>
+
+    <h1>
+      FOR<br>YOU
+    </h1>
+
+    <p>
+      Una camiseta. Cuatro creadores. Marcos, Miguel, Gonzalo y Laura firman la primera pieza de la marca.
+    </p>
+
+    <div class="actions">
+
+      <a class="btn red" href="#producto">
+        COMPRAR AHORA
       </a>
 
-      <button class="cart-button" onclick="openCart()">
-        CARRITO
-        <span class="cart-count" id="cartCount">0</span>
+      <a class="btn out" href="#creadores">
+        CONÓCELOS
+      </a>
+
+    </div>
+
+  </div>
+
+  <div>
+
+    <img
+      class="hero-photo"
+      src="images/hero.jpg"
+      alt="FOR YOU"
+    >
+
+    <div class="caption">
+      FOR YOU — EDICIÓN 001
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+  <div class="track">
+
+    <span>
+      HECHO EN ESPAÑA <b>✦</b>
+    </span>
+
+    <span>
+      FOR YOU <b>✦</b>
+    </span>
+
+    <span>
+      EDICIÓN LIMITADA <b>✦</b>
+    </span>
+
+    <span>
+      HECHO EN ESPAÑA <b>✦</b>
+    </span>
+
+    <span>
+      FOR YOU <b>✦</b>
+    </span>
+
+    <span>
+      EDICIÓN LIMITADA <b>✦</b>
+    </span>
+
+  </div>
+
+</div>
+
+
+<!-- PRODUCTO -->
+
+<section class="product" id="producto">
+
+  <div>
+
+    <img
+      id="mainImage"
+      class="gallery-main"
+      src="images/product-city.jpg"
+      alt="Camiseta FOR YOU"
+    >
+
+    <div class="thumbs">
+
+      <button
+        class="thumb active"
+        onclick="changeImage(this,'images/product-city.jpg')"
+      >
+        <img
+          src="images/product-city.jpg"
+          alt=""
+        >
+      </button>
+
+      <button
+        class="thumb"
+        onclick="changeImage(this,'images/product-beach.jpg')"
+      >
+        <img
+          src="images/product-beach.jpg"
+          alt=""
+        >
+      </button>
+
+      <button
+        class="thumb"
+        onclick="changeImage(this,'images/product-sitting.jpg')"
+      >
+        <img
+          src="images/product-sitting.jpg"
+          alt=""
+        >
       </button>
 
     </div>
-  </header>
-
-
-  <main id="inicio">
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <section class="hero">
-
-      <div class="hero-content">
-
-        <div class="eyebrow">
-          EDICIÓN 001 · 2026
-        </div>
-
-        <h1 class="hero-title">
-          <span>FOR</span>
-          <span>YOU</span>
-        </h1>
-
-        <p class="hero-copy">
-          Una camiseta. Cuatro creadores. Marcos, Miguel, Gonzalo y Laura
-          firman la primera pieza de la marca.
-        </p>
-
-        <div class="hero-actions">
-
-          <a href="#producto" class="btn btn-primary">
-            COMPRAR AHORA
-          </a>
-
-          <a href="#creadores" class="btn btn-secondary">
-            CONÓCELOS
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-image-wrap">
-
-        <img
-          class="hero-image"
-          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=85"
-          alt="Camiseta FOR YOU."
-        >
-
-        <div class="image-caption">
-          <span>FOR YOU — EDICIÓN 001</span>
-          <span>01 / 01</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         MARQUEE
-    ========================= -->
-
-    <div class="marquee">
-
-      <div class="marquee-track">
-
-        <div class="marquee-item">
-          HECHO EN ESPAÑA <span>✦</span>
-        </div>
-
-        <div class="marquee-item">
-          FOR YOU <span>✦</span>
-        </div>
-
-        <div class="marquee-item">
-          EDICIÓN LIMITADA <span>✦</span>
-        </div>
-
-        <div class="marquee-item">
-          HECHO EN ESPAÑA <span>✦</span>
-        </div>
-
-        <div class="marquee-item">
-          FOR YOU <span>✦</span>
-        </div>
-
-        <div class="marquee-item">
-          EDICIÓN LIMITADA <span>✦</span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- =========================
-         PRODUCTO
-    ========================= -->
-
-    <section class="product" id="producto">
-
-      <div class="gallery">
-
-        <img
-          id="mainProductImage"
-          class="main-image"
-          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=85"
-          alt="Camiseta FOR YOU."
-        >
-
-        <div class="thumbnails">
-
-          <button
-            class="thumbnail active"
-            onclick="changeImage(this, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=85')"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=85"
-              alt="Camiseta FOR YOU vista 1"
-            >
-          </button>
-
-          <button
-            class="thumbnail"
-            onclick="changeImage(this, 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=1400&q=85')"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=500&q=85"
-              alt="Camiseta FOR YOU vista 2"
-            >
-          </button>
-
-          <button
-            class="thumbnail"
-            onclick="changeImage(this, 'https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1400&q=85')"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=500&q=85"
-              alt="Camiseta FOR YOU vista 3"
-            >
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-label">
-          EDICIÓN LIMITADA · 001
-        </div>
-
-        <h2 class="product-title">
-          CAMISETA<br>
-          FOR / YOU
-        </h2>
-
-        <p class="product-description">
-          Algodón pesado de 240 g, corte oversize y serigrafía
-          “FOR YOU” delante y detrás. Creada a cuatro manos —
-          bueno, a ocho.
-        </p>
-
-        <div class="price">
-          10,00 €
-        </div>
-
-        <div class="size-title">
-          SELECCIONA TALLA
-        </div>
-
-        <div class="sizes">
-
-          <button class="size">XS</button>
-          <button class="size">S</button>
-          <button class="size active">M</button>
-          <button class="size">L</button>
-          <button class="size">XL</button>
-          <button class="size">XXL</button>
-
-        </div>
-
-        <button class="add-cart" onclick="addToCart()">
-          AÑADIR AL CARRITO — 10,00 €
-        </button>
-
-        <div class="shipping-info">
-
-          <div class="shipping-row">
-            <span>ENVÍO</span>
-            <span>ESPAÑA · 2–4 DÍAS</span>
-          </div>
-
-          <div class="shipping-row">
-            <span>DEVOLUCIONES</span>
-            <span>GRATIS · 30 DÍAS</span>
-          </div>
-
-          <div class="shipping-row">
-            <span>UNIDADES</span>
-            <span>200 PIEZAS</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CREADORES — AL FINAL
-    ========================= -->
-
-    <section class="creators" id="creadores">
-
-      <div class="creators-header">
-
-        <div class="section-label">
-          LOS CREADORES
-        </div>
-
-        <h2 class="creators-title">
-          FIRMADO<br>
-          POR CUATRO
-        </h2>
-
-        <p class="creators-intro">
-          Cada camiseta lleva impreso el nombre de quienes la hicieron
-          posible. Un proyecto entre amigos, de Madrid para fuera.
-        </p>
-
-      </div>
-
-
-      <div class="creator-grid">
-
-        <article class="creator-card">
-
-          <div class="creator-number">
-            01 / 04
-          </div>
-
-          <div class="creator-initials">
-            MD
-          </div>
-
-          <div class="creator-name">
-            Marcos Domínguez
-          </div>
-
-          <div class="creator-role">
-            CREADOR · FOR YOU
-          </div>
-
-        </article>
-
-
-        <article class="creator-card">
-
-          <div class="creator-number">
-            02 / 04
-          </div>
-
-          <div class="creator-initials">
-            MH
-          </div>
-
-          <div class="creator-name">
-            Miguel Hernández
-          </div>
-
-          <div class="creator-role">
-            CREADOR · FOR YOU
-          </div>
-
-        </article>
-
-
-        <article class="creator-card">
-
-          <div class="creator-number">
-            03 / 04
-          </div>
-
-          <div class="creator-initials">
-            GG
-          </div>
-
-          <div class="creator-name">
-            Gonzalo González
-          </div>
-
-          <div class="creator-role">
-            CREADOR · FOR YOU
-          </div>
-
-        </article>
-
-
-        <article class="creator-card">
-
-          <div class="creator-number">
-            04 / 04
-          </div>
-
-          <div class="creator-initials">
-            LD
-          </div>
-
-          <div class="creator-name">
-            Laura Díaz de Sousa
-          </div>
-
-          <div class="creator-role">
-            CREADORA · FOR YOU
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer class="footer">
-
-    <div class="footer-inner">
-
-      <div class="footer-top">
-
-        <div>
-
-          <div class="footer-logo">
-            FOR YOU<span>.</span>
-          </div>
-
-          <div class="footer-creators">
-            Marcos · Miguel · Gonzalo · Laura
-          </div>
-
-        </div>
-
-
-        <nav class="footer-links">
-
-          <a href="#producto">
-            LA CAMISETA
-          </a>
-
-          <a href="#creadores">
-            CREADORES
-          </a>
-
-          <a href="#inicio">
-            INICIO
-          </a>
-
-        </nav>
-
-      </div>
-
-
-      <div class="footer-bottom">
-        © 2026 FOR YOU. TODOS LOS DERECHOS RESERVADOS.
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =========================
-       CART
-  ========================= -->
-
-  <div class="overlay" id="overlay">
-
-    <aside class="cart-panel">
-
-      <div class="cart-header">
-
-        <div class="cart-title">
-          TU CARRITO
-        </div>
-
-        <button class="close-cart" onclick="closeCart()">
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="cart-content" id="cartContent">
-
-        <div class="empty-cart">
-          Tu carrito está vacío.
-        </div>
-
-      </div>
-
-
-      <div class="cart-footer">
-
-        <div class="cart-total">
-
-          <span>TOTAL</span>
-
-          <span id="cartTotal">
-            0,00 €
-          </span>
-
-        </div>
-
-        <button class="checkout-button">
-          CONTINUAR CON EL PEDIDO
-        </button>
-
-      </div>
-
-    </aside>
 
   </div>
 
 
-  <script>
+  <div class="info">
 
-    /* =========================
-       GALERÍA
-    ========================= */
+    <div class="label">
+      EDICIÓN LIMITADA · 001
+    </div>
 
-    function changeImage(button, image) {
+    <h2>
+      CAMISETA FOR<br>YOU
+    </h2>
 
-      document.getElementById("mainProductImage").src = image;
+    <p>
+      Algodón pesado de 240 g, corte oversize y serigrafía “FOR YOU” delante y detrás. Creada a cuatro manos — bueno, a ocho.
+    </p>
 
-      document.querySelectorAll(".thumbnail").forEach(function(item) {
-        item.classList.remove("active");
-      });
+    <div class="price">
+      10,00 €
+    </div>
+
+
+    <div class="size-head">
+
+      <strong>
+        TALLA
+      </strong>
+
+      <a href="#" onclick="return false">
+        Guía de tallas
+      </a>
+
+    </div>
+
+
+    <div class="sizes">
+
+      <button class="size">
+        XS
+      </button>
+
+      <button class="size">
+        S
+      </button>
+
+      <button class="size active">
+        M
+      </button>
+
+      <button class="size">
+        L
+      </button>
+
+      <button class="size">
+        XL
+      </button>
+
+      <button class="size">
+        XXL
+      </button>
+
+    </div>
+
+
+    <button
+      class="add"
+      onclick="addToCart()"
+    >
+      AÑADIR AL CARRITO — 10,00 €
+    </button>
+
+
+    <div class="details">
+
+      <p>
+        · Envío a toda España en 2–4 días laborables
+      </p>
+
+      <p>
+        · Devolución gratuita durante 30 días
+      </p>
+
+      <p>
+        · Producción limitada: solo 200 unidades
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CREADORES -->
+
+<section
+  class="creators"
+  id="creadores"
+>
+
+  <div class="label">
+    LOS CREADORES
+  </div>
+
+  <h2>
+    FIRMADO POR<br>CUATRO
+  </h2>
+
+  <p class="intro">
+    Cada camiseta lleva impreso el nombre de quienes la hicieron posible. Un proyecto entre amigos, de Madrid para fuera.
+  </p>
+
+
+  <div class="cards">
+
+    <article class="card">
+
+      <div class="initials">
+        MD
+      </div>
+
+      <h3>
+        Marcos<br>Domínguez
+      </h3>
+
+      <p>
+        CREADOR · FOR<br>YOU
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="initials">
+        MH
+      </div>
+
+      <h3>
+        Miguel<br>Hernández
+      </h3>
+
+      <p>
+        CREADOR · FOR<br>YOU
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="initials">
+        GG
+      </div>
+
+      <h3>
+        Gonzalo<br>González
+      </h3>
+
+      <p>
+        CREADOR · FOR<br>YOU
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="initials">
+        LD
+      </div>
+
+      <h3>
+        Laura Díaz de<br>Sousa
+      </h3>
+
+      <p>
+        CREADORA · FOR<br>YOU
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <div class="footer-top">
+
+    <div>
+
+      <div class="footer-logo">
+        FOR YOU<i>.</i>
+      </div>
+
+      <div class="footer-names">
+        Marcos · Miguel · Gonzalo · Laura
+      </div>
+
+    </div>
+
+
+    <nav class="footer-links">
+
+      <a href="#producto">
+        La camiseta
+      </a>
+
+      <a href="#creadores">
+        Creadores
+      </a>
+
+      <a href="#inicio">
+        Inicio
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <div class="copy">
+    © 2026 FOR YOU. TODOS LOS DERECHOS RESERVADOS.
+  </div>
+
+</footer>
+
+
+<!-- CARRITO -->
+
+<div
+  class="overlay"
+  id="overlay"
+>
+
+  <aside class="cart">
+
+    <div class="cart-head">
+
+      <h3>
+        TU CARRITO
+      </h3>
+
+      <button
+        class="close"
+        onclick="closeCart()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-body"
+      id="cartBody"
+    >
+
+      <div class="empty">
+        Tu carrito está vacío.
+      </div>
+
+    </div>
+
+
+    <div class="cart-bottom">
+
+      <div class="total">
+
+        <span>
+          TOTAL
+        </span>
+
+        <span id="total">
+          0,00 €
+        </span>
+
+      </div>
+
+      <button class="checkout">
+        CONTINUAR CON EL PEDIDO
+      </button>
+
+    </div>
+
+  </aside>
+
+</div>
+
+
+<script>
+
+let cart = [];
+
+let selectedSize = "M";
+
+
+/* TALLAS */
+
+document
+  .querySelectorAll(".size")
+  .forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      document
+        .querySelectorAll(".size")
+        .forEach(x =>
+          x.classList.remove("active")
+        );
 
       button.classList.add("active");
-    }
 
-
-    /* =========================
-       TALLAS
-    ========================= */
-
-    let selectedSize = "M";
-
-    document.querySelectorAll(".size").forEach(function(button) {
-
-      button.addEventListener("click", function() {
-
-        document.querySelectorAll(".size").forEach(function(item) {
-          item.classList.remove("active");
-        });
-
-        this.classList.add("active");
-
-        selectedSize = this.textContent.trim();
-
-      });
+      selectedSize =
+        button.textContent.trim();
 
     });
 
-
-    /* =========================
-       CARRITO
-    ========================= */
-
-    let cart = [];
-
-    function addToCart() {
-
-      const existingItem = cart.find(function(item) {
-        return item.size === selectedSize;
-      });
-
-      if (existingItem) {
-
-        existingItem.quantity++;
-
-      } else {
-
-        cart.push({
-          name: "CAMISETA FOR / YOU",
-          size: selectedSize,
-          price: 10,
-          quantity: 1,
-          image: document.getElementById("mainProductImage").src
-        });
-
-      }
-
-      updateCart();
-      openCart();
-
-    }
+  });
 
 
-    function updateCart() {
+/* GALERÍA */
 
-      const cartContent = document.getElementById("cartContent");
-      const cartCount = document.getElementById("cartCount");
-      const cartTotal = document.getElementById("cartTotal");
+function changeImage(button,src){
 
-      let totalItems = 0;
-      let totalPrice = 0;
+  document
+    .getElementById("mainImage")
+    .src = src;
 
-      cart.forEach(function(item) {
+  document
+    .querySelectorAll(".thumb")
+    .forEach(x =>
+      x.classList.remove("active")
+    );
 
-        totalItems += item.quantity;
-        totalPrice += item.price * item.quantity;
+  button.classList.add("active");
 
-      });
-
-
-      cartCount.textContent = totalItems;
-
-      cartTotal.textContent =
-        totalPrice.toFixed(2).replace(".", ",") + " €";
+}
 
 
-      if (cart.length === 0) {
+/* AÑADIR AL CARRITO */
 
-        cartContent.innerHTML = `
-          <div class="empty-cart">
-            Tu carrito está vacío.
-          </div>
-        `;
+function addToCart(){
 
-        return;
-      }
+  let item =
+    cart.find(
+      x => x.size === selectedSize
+    );
 
+  if(item){
 
-      cartContent.innerHTML = cart.map(function(item, index) {
+    item.quantity++;
 
-        return `
+  }else{
 
-          <div class="cart-item">
+    cart.push({
 
-            <img
-              src="${item.image}"
-              alt="${item.name}"
-            >
+      size:selectedSize,
 
-            <div>
+      quantity:1,
 
-              <div class="cart-item-name">
-                ${item.name}
-              </div>
+      price:10,
 
-              <div class="cart-item-details">
-                Talla: ${item.size}<br>
-                Cantidad: ${item.quantity}
-              </div>
+      image:"images/product-city.jpg"
 
-              <button
-                class="remove-item"
-                onclick="removeItem(${index})"
-              >
-                ELIMINAR
-              </button>
+    });
 
-            </div>
+  }
 
-            <div class="cart-item-price">
-              ${(item.price * item.quantity).toFixed(2).replace(".", ",")} €
-            </div>
+  updateCart();
 
-          </div>
+  openCart();
 
-        `;
-
-      }).join("");
-
-    }
+}
 
 
-    function removeItem(index) {
+/* ACTUALIZAR CARRITO */
 
-      cart.splice(index, 1);
+function updateCart(){
 
-      updateCart();
+  let number =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.quantity,
+      0
+    );
 
-    }
-
-
-    /* =========================
-       ABRIR / CERRAR CARRITO
-    ========================= */
-
-    function openCart() {
-
-      document.getElementById("overlay").classList.add("open");
-
-      document.body.style.overflow = "hidden";
-
-    }
+  document
+    .getElementById("count")
+    .textContent =
+      number
+        ? `(${number})`
+        : "";
 
 
-    function closeCart() {
+  let total =
+    cart.reduce(
+      (sum,item) =>
+        sum +
+        item.quantity *
+        item.price,
+      0
+    );
 
-      document.getElementById("overlay").classList.remove("open");
+  document
+    .getElementById("total")
+    .textContent =
+      total
+        .toFixed(2)
+        .replace(".",",")
+        + " €";
 
-      document.body.style.overflow = "";
 
-    }
+  let body =
+    document.getElementById("cartBody");
 
 
-    document.getElementById("overlay").addEventListener("click", function(event) {
+  if(!cart.length){
 
-      if (event.target === this) {
+    body.innerHTML =
+      '<div class="empty">Tu carrito está vacío.</div>';
+
+    return;
+
+  }
+
+
+  body.innerHTML =
+    cart.map((item,index) => `
+
+      <div class="item">
+
+        <img
+          src="${item.image}"
+          alt=""
+        >
+
+        <div>
+
+          <strong>
+            CAMISETA FOR YOU
+          </strong>
+
+          <small>
+            Talla: ${item.size}<br>
+            Cantidad: ${item.quantity}
+          </small>
+
+          <button
+            class="remove"
+            onclick="removeItem(${index})"
+          >
+            ELIMINAR
+          </button>
+
+        </div>
+
+        <div class="item-price">
+          ${(item.quantity * item.price)
+            .toFixed(2)
+            .replace(".",",")} €
+        </div>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+/* ELIMINAR */
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+
+/* ABRIR CARRITO */
+
+function openCart(){
+
+  document
+    .getElementById("overlay")
+    .classList.add("open");
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+/* CERRAR CARRITO */
+
+function closeCart(){
+
+  document
+    .getElementById("overlay")
+    .classList.remove("open");
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+/* CERRAR AL PULSAR FUERA */
+
+document
+  .getElementById("overlay")
+  .addEventListener(
+    "click",
+    event => {
+
+      if(
+        event.target.id ===
+        "overlay"
+      ){
+
         closeCart();
+
       }
 
-    });
+    }
+  );
 
 
-    document.addEventListener("keydown", function(event) {
+/* ESC */
 
-      if (event.key === "Escape") {
+document
+  .addEventListener(
+    "keydown",
+    event => {
+
+      if(event.key === "Escape"){
+
         closeCart();
+
       }
 
-    });
+    }
+  );
 
 
-    /* =========================
-       INICIO
-    ========================= */
+updateCart();
 
-    updateCart();
-
-  </script>
+</script>
 
 </body>
 </html>
