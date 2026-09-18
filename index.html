@@ -1,128 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>4Ushop | Ropa urbana y streetwear</title>
-
-<meta name="description" content="Descubre 4Ushop, una marca de ropa urbana y streetwear creada para quienes buscan diseños únicos y estilo propio.">
-
-<meta name="keywords" content="4Ushop, ropa urbana, streetwear, ropa juvenil, camisetas, moda urbana, 4U">
-
-<meta name="author" content="4Ushop">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/">
-
-<meta property="og:title" content="4Ushop | Ropa urbana y streetwear">
-<meta property="og:description" content="Descubre 4Ushop, ropa urbana y streetwear con diseños únicos.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/">
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4Ushop | Ropa urbana y streetwear">
-<meta name="twitter:description" content="Descubre 4Ushop, ropa urbana y streetwear con diseños únicos.">  <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4Ushop — Official Store</title>
-  <meta name="description" content="4Ushop — ropa diseñada para ti.">
+
+  <title>4Ushop | Ropa urbana y streetwear</title>
+
+  <meta name="description" content="Descubre 4Ushop, una marca de ropa urbana y streetwear con diseños modernos y únicos. Conoce nuestra colección.">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="4Ushop">
+
+  <link rel="canonical" href="https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/">
+
+  <!-- Redes sociales -->
+  <meta property="og:title" content="4Ushop | Ropa urbana y streetwear">
+  <meta property="og:description" content="Descubre 4Ushop, una marca de ropa urbana y streetwear con diseños modernos y únicos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/">
+
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f5;
       color: #111;
+      background: #fff;
+      line-height: 1.6;
     }
 
     header {
-      height: 76px;
+      width: 100%;
+      padding: 22px 6%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 6%;
-      background: #fff;
-      border-bottom: 1px solid #e8e8e8;
+      align-items: center;
+      border-bottom: 1px solid #eee;
       position: sticky;
       top: 0;
-      z-index: 10;
+      background: rgba(255,255,255,0.96);
+      z-index: 100;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -1.5px;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     nav {
       display: flex;
-      gap: 30px;
+      gap: 28px;
     }
 
     nav a {
-      color: #111;
       text-decoration: none;
+      color: #111;
       font-size: 14px;
       font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
     }
 
     .hero {
-      min-height: 620px;
+      min-height: 650px;
+      padding: 80px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 70px 8%;
-      background: #fff;
       gap: 50px;
+      background: #f7f7f7;
     }
 
     .hero-text {
-      max-width: 540px;
+      max-width: 560px;
     }
 
     .hero-text p {
       font-size: 13px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       font-weight: 700;
       margin-bottom: 20px;
-      text-transform: uppercase;
     }
 
     .hero-text h1 {
-      font-size: clamp(55px, 8vw, 100px);
-      line-height: .88;
+      font-size: clamp(55px, 9vw, 105px);
+      line-height: 0.9;
       letter-spacing: -6px;
       margin-bottom: 30px;
     }
 
-    .hero-text h1 span {
-      color: #777;
+    .hero-text span {
+      display: block;
     }
 
     .hero-text .description {
       font-size: 17px;
-      line-height: 1.6;
-      color: #555;
-      max-width: 440px;
-      margin-bottom: 35px;
+      letter-spacing: 0;
+      font-weight: 400;
+      max-width: 430px;
+      margin-bottom: 30px;
     }
 
     .button {
       display: inline-block;
+      padding: 15px 28px;
       background: #111;
       color: #fff;
       text-decoration: none;
-      padding: 16px 28px;
-      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 1px;
-      transition: .2s;
+      font-size: 14px;
+      transition: transform 0.2s, background 0.2s;
     }
 
     .button:hover {
@@ -130,135 +129,117 @@
       background: #333;
     }
 
-    .hero-product {
-      width: 43%;
-      min-height: 470px;
-      background: #eeeeeb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .shirt-placeholder {
-      width: 65%;
-      aspect-ratio: 1 / 1.1;
+    .shirt {
+      width: min(430px, 90vw);
+      height: 470px;
       background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 25px 60px rgba(0,0,0,.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     }
 
-    .shirt-placeholder span {
-      font-size: 65px;
+    .shirt-design {
+      font-size: 42px;
       font-weight: 900;
-      letter-spacing: -5px;
+      letter-spacing: -3px;
     }
 
-    .section {
-      padding: 90px 8%;
+    section {
+      padding: 100px 7%;
     }
 
     .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
       font-size: 42px;
       letter-spacing: -2px;
-    }
-
-    .section-title p {
-      color: #777;
-      font-size: 14px;
+      margin-bottom: 45px;
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 25px;
     }
 
     .product {
-      background: #fff;
-      padding-bottom: 22px;
+      background: #f5f5f5;
+      padding-bottom: 25px;
     }
 
     .product-image {
-      aspect-ratio: 1 / 1.15;
-      background: #eeeeeb;
+      height: 420px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
+      align-items: center;
+      background: #eee;
+      margin-bottom: 20px;
     }
 
     .product-image span {
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: -4px;
+      font-size: 28px;
+      font-weight: 800;
     }
 
     .product-info {
-      padding: 0 18px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
+      padding: 0 20px;
     }
 
-    .product-name {
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .product-type {
-      color: #888;
-      font-size: 13px;
-      margin-top: 5px;
+    .product-info h3 {
+      font-size: 19px;
+      margin-bottom: 5px;
     }
 
     .price {
       font-weight: 700;
-      font-size: 15px;
     }
 
     .about {
       background: #111;
       color: #fff;
-      text-align: center;
-      padding: 110px 8%;
+    }
+
+    .about-content {
+      max-width: 800px;
     }
 
     .about h2 {
-      font-size: clamp(40px, 6vw, 75px);
-      letter-spacing: -4px;
+      font-size: 48px;
+      letter-spacing: -2px;
       margin-bottom: 25px;
     }
 
     .about p {
-      max-width: 600px;
-      margin: auto;
-      color: #bbb;
-      line-height: 1.7;
-      font-size: 16px;
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: #555;
+      margin-bottom: 25px;
     }
 
     footer {
-      background: #111;
-      border-top: 1px solid #333;
-      color: #888;
-      padding: 30px 8%;
+      padding: 30px 7%;
+      border-top: 1px solid #eee;
       display: flex;
       justify-content: space-between;
+      gap: 20px;
       font-size: 13px;
+      color: #666;
     }
 
     @media (max-width: 800px) {
       header {
-        padding: 0 5%;
+        padding: 18px 5%;
       }
 
       nav {
@@ -270,49 +251,51 @@
       }
 
       .hero {
+        min-height: auto;
+        padding: 70px 6%;
         flex-direction: column;
-        padding: 55px 5%;
-      }
-
-      .hero-product {
-        width: 100%;
-        min-height: 350px;
+        align-items: flex-start;
       }
 
       .hero-text h1 {
-        letter-spacing: -4px;
+        font-size: 65px;
+      }
+
+      .shirt {
+        width: 100%;
+        height: 400px;
       }
 
       .products {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
 
-      .section {
-        padding: 65px 5%;
-      }
-
-      .about {
-        padding: 80px 5%;
+      section {
+        padding: 70px 6%;
       }
 
       footer {
         flex-direction: column;
-        gap: 10px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .products {
-        grid-template-columns: 1fr;
       }
     }
   </style>
+
+  <!-- Información de la marca para buscadores -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "4Ushop",
+    "url": "https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/",
+    "description": "4Ushop es una marca de ropa urbana y streetwear."
+  }
+  </script>
 </head>
 
 <body>
 
   <header>
-    <div class="logo">4U</div>
+    <div class="logo">4Ushop</div>
 
     <nav>
       <a href="#shop">SHOP</a>
@@ -321,95 +304,99 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <p>4Ushop — New Collection</p>
+  <main>
 
-      <h1>MADE<br><span>FOR YOU.</span></h1>
+    <section class="hero">
+      <div class="hero-text">
+        <p>WELCOME TO 4USHOP</p>
 
-      <p class="description">
-        Minimal clothing. Clean design. Made for the people who want to be themselves.
+        <h1>
+          MADE
+          <span>FOR YOU.</span>
+        </h1>
+
+        <p class="description">
+          Ropa urbana y streetwear creada para expresar tu propio estilo.
+        </p>
+
+        <a class="button" href="#shop">VER COLECCIÓN</a>
+      </div>
+
+      <div class="shirt" aria-label="Camiseta 4Ushop">
+        <div class="shirt-design">4U V3</div>
+      </div>
+    </section>
+
+    <section id="shop">
+      <h2 class="section-title">SHOP</h2>
+
+      <div class="products">
+
+        <article class="product">
+          <div class="product-image" aria-label="Camiseta 4U V3">
+            <span>4U V3</span>
+          </div>
+
+          <div class="product-info">
+            <h3>4U V3 T-Shirt</h3>
+            <p class="price">29,99 €</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image" aria-label="Próximo producto 4Ushop">
+            <span>4U</span>
+          </div>
+
+          <div class="product-info">
+            <h3>Coming Soon</h3>
+            <p class="price">Próximamente</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image" aria-label="Próximo producto 4Ushop">
+            <span>4U</span>
+          </div>
+
+          <div class="product-info">
+            <h3>Coming Soon</h3>
+            <p class="price">Próximamente</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-content">
+        <h2>ABOUT 4USHOP</h2>
+
+        <p>
+          4Ushop es una marca de ropa urbana y streetwear creada para quienes
+          buscan diseños modernos, sencillos y diferentes. Nuestra idea es
+          crear prendas que puedas llevar a tu manera y que representen tu
+          propio estilo.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>CONTACT</h2>
+
+      <p>
+        ¿Tienes alguna pregunta? Próximamente podrás contactar directamente
+        con 4Ushop.
       </p>
 
-      <a href="#shop" class="button">SHOP NOW →</a>
-    </div>
+      <a class="button" href="#shop">VER 4USHOP</a>
+    </section>
 
-    <div class="hero-product">
-      <div class="shirt-placeholder">
-        <span>4U</span>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <section class="section" id="shop">
-
-    <div class="section-title">
-      <h2>SHOP</h2>
-      <p>NEW COLLECTION</p>
-    </div>
-
-    <div class="products">
-
-      <div class="product">
-        <div class="product-image">
-          <span>4U</span>
-        </div>
-
-        <div class="product-info">
-          <div>
-            <div class="product-name">4U V3 T-Shirt</div>
-            <div class="product-type">White / Unisex</div>
-          </div>
-
-          <div class="price">€29.99</div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="product-image">
-          <span>4U</span>
-        </div>
-
-        <div class="product-info">
-          <div>
-            <div class="product-name">4U Essential</div>
-            <div class="product-type">Coming soon</div>
-          </div>
-
-          <div class="price">—</div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="product-image">
-          <span>4U</span>
-        </div>
-
-        <div class="product-info">
-          <div>
-            <div class="product-name">4U Collection</div>
-            <div class="product-type">Coming soon</div>
-          </div>
-
-          <div class="price">—</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <h2>MADE FOR YOU.</h2>
-
-    <p>
-      4Ushop is a clothing project built around simple designs,
-      everyday style and individuality. This is just the beginning.
-    </p>
-  </section>
-
-  <footer id="contact">
-    <div>© 2026 4Ushop</div>
-    <div>Instagram · Contact</div>
+  <footer>
+    <span>© 2026 4Ushop</span>
+    <span>Made for you.</span>
   </footer>
 
 </body>
