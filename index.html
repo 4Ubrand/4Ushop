@@ -1,403 +1,1487 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>4Ushop | Ropa urbana y streetwear</title>
+<title>FOR YOU. — Edición 001</title>
 
-  <meta name="description" content="Descubre 4Ushop, una marca de ropa urbana y streetwear con diseños modernos y únicos. Conoce nuestra colección.">
+<meta name="description" content="FOR YOU. Edición 001. Una camiseta. Cuatro creadores. Una pieza creada entre amigos.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#F3F0E7">
 
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="4Ushop">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap');
 
-  <link rel="canonical" href="https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/">
+:root{
+  --cream:#F3F0E7;
+  --black:#12110E;
+  --red:#F21B0C;
+  --muted:#68635A;
+  --border:#D8D5CC;
+  --white:#F8F6EF;
+}
 
-  <!-- Redes sociales -->
-  <meta property="og:title" content="4Ushop | Ropa urbana y streetwear">
-  <meta property="og:description" content="Descubre 4Ushop, una marca de ropa urbana y streetwear con diseños modernos y únicos.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/">
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body{
+  background:var(--cream);
+  color:var(--black);
+  font-family:'Archivo',Arial,sans-serif;
+  overflow-x:hidden;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111;
-      background: #fff;
-      line-height: 1.6;
-    }
+button,
+a{
+  font-family:inherit;
+}
 
-    header {
-      width: 100%;
-      padding: 22px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.96);
-      z-index: 100;
-    }
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
+button{
+  cursor:pointer;
+}
 
-    nav {
-      display: flex;
-      gap: 28px;
-    }
+/* ================= HEADER ================= */
 
-    nav a {
-      text-decoration: none;
-      color: #111;
-      font-size: 14px;
-      font-weight: 600;
-      transition: opacity 0.2s;
-    }
+header{
+  height:108px;
+  padding:0 5.2vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:var(--cream);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 
-    nav a:hover {
-      opacity: 0.55;
-    }
+.logo{
+  font-size:42px;
+  font-weight:900;
+  letter-spacing:-3px;
+  line-height:1;
+}
 
-    .hero {
-      min-height: 650px;
-      padding: 80px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 50px;
-      background: #f7f7f7;
-    }
+.red-dot{
+  color:var(--red);
+}
 
-    .hero-text {
-      max-width: 560px;
-    }
+.cart-button{
+  position:relative;
+  min-width:190px;
+  height:68px;
+  padding:0 25px;
+  background:transparent;
+  border:2px solid var(--black);
+  color:var(--black);
+  font-size:17px;
+  font-weight:800;
+  letter-spacing:2px;
+}
 
-    .hero-text p {
-      font-size: 13px;
-      letter-spacing: 3px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
+.cart-count{
+  position:absolute;
+  top:-23px;
+  right:-20px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--red);
+  color:white;
+  font-size:17px;
+  font-weight:800;
+}
 
-    .hero-text h1 {
-      font-size: clamp(55px, 9vw, 105px);
-      line-height: 0.9;
-      letter-spacing: -6px;
-      margin-bottom: 30px;
-    }
+/* ================= HERO ================= */
 
-    .hero-text span {
-      display: block;
-    }
+.hero{
+  padding:110px 8vw 100px;
+}
 
-    .hero-text .description {
-      font-size: 17px;
-      letter-spacing: 0;
-      font-weight: 400;
-      max-width: 430px;
-      margin-bottom: 30px;
-    }
+.edition{
+  color:var(--red);
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:4px;
+  margin-bottom:34px;
+}
 
-    .button {
-      display: inline-block;
-      padding: 15px 28px;
-      background: #111;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform 0.2s, background 0.2s;
-    }
+.hero-title{
+  font-size:clamp(110px,19vw,290px);
+  font-weight:900;
+  line-height:.76;
+  letter-spacing:-.075em;
+  margin-left:-8px;
+  margin-bottom:65px;
+}
 
-    .button:hover {
-      transform: translateY(-2px);
-      background: #333;
-    }
+.hero-title span{
+  display:block;
+}
 
-    .shirt {
-      width: min(430px, 90vw);
-      height: 470px;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    }
+.hero-description{
+  max-width:690px;
+  color:var(--muted);
+  font-size:clamp(23px,3vw,34px);
+  line-height:1.45;
+  margin-bottom:48px;
+}
 
-    .shirt-design {
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -3px;
-    }
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-bottom:72px;
+}
 
-    section {
-      padding: 100px 7%;
-    }
+.primary-button,
+.secondary-button{
+  min-height:90px;
+  padding:0 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--black);
+  font-size:17px;
+  font-weight:900;
+  letter-spacing:2px;
+  transition:.2s ease;
+}
 
-    .section-title {
-      font-size: 42px;
-      letter-spacing: -2px;
-      margin-bottom: 45px;
-    }
+.primary-button{
+  background:var(--red);
+  color:white;
+  border-color:var(--red);
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.secondary-button{
+  background:transparent;
+  color:var(--black);
+}
 
-    .product {
-      background: #f5f5f5;
-      padding-bottom: 25px;
-    }
+.primary-button:hover{
+  transform:translateY(-3px);
+  background:#d9180b;
+}
 
-    .product-image {
-      height: 420px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #eee;
-      margin-bottom: 20px;
-    }
+.secondary-button:hover{
+  background:var(--black);
+  color:var(--cream);
+}
 
-    .product-image span {
-      font-size: 28px;
-      font-weight: 800;
-    }
+.hero-image{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+  border:1px solid var(--border);
+}
 
-    .product-info {
-      padding: 0 20px;
-    }
+.image-caption{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:15px;
+  letter-spacing:3px;
+}
 
-    .product-info h3 {
-      font-size: 19px;
-      margin-bottom: 5px;
-    }
+/* ================= MARQUEE ================= */
 
-    .price {
-      font-weight: 700;
-    }
+.marquee{
+  width:100%;
+  overflow:hidden;
+  background:var(--black);
+  color:var(--cream);
+  height:104px;
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+}
 
-    .about {
-      background: #111;
-      color: #fff;
-    }
+.marquee-track{
+  display:flex;
+  width:max-content;
+  animation:marquee 24s linear infinite;
+}
 
-    .about-content {
-      max-width: 800px;
-    }
+.marquee-content{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:3px;
+  padding-right:45px;
+}
 
-    .about h2 {
-      font-size: 48px;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
-    }
+.marquee-content .star{
+  color:var(--red);
+}
 
-    .about p {
-      font-size: 18px;
-      color: #ddd;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    .contact p {
-      color: #555;
-      margin-bottom: 25px;
-    }
-
-    footer {
-      padding: 30px 7%;
-      border-top: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      font-size: 13px;
-      color: #666;
-    }
-
-    @media (max-width: 800px) {
-      header {
-        padding: 18px 5%;
-      }
-
-      nav {
-        gap: 14px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 70px 6%;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero-text h1 {
-        font-size: 65px;
-      }
-
-      .shirt {
-        width: 100%;
-        height: 400px;
-      }
-
-      .products {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 70px 6%;
-      }
-
-      footer {
-        flex-direction: column;
-      }
-    }
-  </style>
-
-  <!-- Información de la marca para buscadores -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ClothingStore",
-    "name": "4Ushop",
-    "url": "https://gonzalogonzalezgarcia25-eng.github.io/4Ushop/",
-    "description": "4Ushop es una marca de ropa urbana y streetwear."
+@keyframes marquee{
+  from{
+    transform:translateX(0);
   }
-  </script>
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* ================= CREATORS ================= */
+
+.creators{
+  padding:150px 8vw;
+}
+
+.section-label{
+  color:var(--red);
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:4px;
+  margin-bottom:30px;
+}
+
+.section-title{
+  font-size:clamp(65px,10vw,145px);
+  font-weight:900;
+  line-height:.82;
+  letter-spacing:-.065em;
+  margin-bottom:45px;
+}
+
+.section-description{
+  max-width:700px;
+  color:var(--muted);
+  font-size:clamp(22px,2.6vw,31px);
+  line-height:1.5;
+  margin-bottom:75px;
+}
+
+.creator-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px;
+}
+
+.creator{
+  border:1px solid var(--border);
+  padding:42px;
+  min-height:410px;
+  background:#f5f2e9;
+}
+
+.initials{
+  width:125px;
+  height:125px;
+  border:2px solid var(--black);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  font-weight:900;
+  margin-bottom:38px;
+}
+
+.creator-name{
+  font-size:30px;
+  font-weight:800;
+  line-height:1.05;
+  margin-bottom:25px;
+}
+
+.creator-role{
+  color:var(--muted);
+  font-size:17px;
+  letter-spacing:2px;
+}
+
+/* ================= PRODUCT ================= */
+
+.product-section{
+  padding:130px 8vw;
+  border-top:1px solid var(--border);
+}
+
+.product-layout{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:75px;
+  align-items:start;
+}
+
+.product-gallery{
+  position:sticky;
+  top:140px;
+}
+
+.main-product-image{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+  border:1px solid var(--border);
+}
+
+.thumbnails{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-top:10px;
+}
+
+.thumbnail{
+  border:1px solid var(--border);
+  background:none;
+  padding:0;
+}
+
+.thumbnail.active{
+  border:2px solid var(--black);
+}
+
+.thumbnail img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  display:block;
+}
+
+.product-label{
+  color:var(--red);
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:3px;
+  margin-bottom:25px;
+}
+
+.product-title{
+  font-size:clamp(65px,8vw,120px);
+  line-height:.82;
+  letter-spacing:-.065em;
+  font-weight:900;
+  margin-bottom:40px;
+}
+
+.product-description{
+  color:var(--muted);
+  font-size:25px;
+  line-height:1.5;
+  margin-bottom:42px;
+}
+
+.product-price{
+  font-size:68px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-4px;
+  margin-bottom:52px;
+}
+
+.size-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.size-header strong{
+  font-size:18px;
+  letter-spacing:2px;
+}
+
+.size-guide{
+  color:var(--muted);
+  text-decoration:underline;
+  font-size:17px;
+}
+
+.sizes{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:7px;
+  margin-bottom:25px;
+}
+
+.size{
+  height:75px;
+  border:1px solid var(--border);
+  background:transparent;
+  font-size:18px;
+  font-weight:700;
+}
+
+.size.selected{
+  background:var(--black);
+  color:var(--cream);
+  border-color:var(--black);
+}
+
+.add-cart{
+  width:100%;
+  height:100px;
+  background:var(--red);
+  color:white;
+  border:2px solid var(--red);
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:2px;
+  transition:.2s ease;
+}
+
+.add-cart:hover{
+  background:#d9180b;
+}
+
+.product-info-list{
+  margin-top:32px;
+  padding-top:32px;
+  border-top:1px solid var(--border);
+}
+
+.product-info-list p{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:12px;
+}
+
+/* ================= CART ================= */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(18,17,14,.45);
+  z-index:2000;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+}
+
+.cart-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.cart-panel{
+  position:absolute;
+  top:0;
+  right:0;
+  width:min(520px,100%);
+  height:100%;
+  background:var(--cream);
+  padding:35px;
+  transform:translateX(100%);
+  transition:.3s ease;
+  overflow-y:auto;
+}
+
+.cart-overlay.open .cart-panel{
+  transform:translateX(0);
+}
+
+.cart-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  padding-bottom:25px;
+  margin-bottom:30px;
+}
+
+.cart-top h2{
+  font-size:45px;
+  font-weight:900;
+  letter-spacing:-2px;
+}
+
+.close-cart{
+  width:48px;
+  height:48px;
+  background:transparent;
+  border:2px solid var(--black);
+  font-size:25px;
+}
+
+.cart-item{
+  display:flex;
+  gap:18px;
+  padding-bottom:25px;
+  margin-bottom:25px;
+  border-bottom:1px solid var(--border);
+}
+
+.cart-item img{
+  width:105px;
+  height:125px;
+  object-fit:cover;
+}
+
+.cart-item h3{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.cart-item p{
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.remove{
+  border:none;
+  background:none;
+  text-decoration:underline;
+  font-size:14px;
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  font-size:26px;
+  font-weight:900;
+  margin-top:35px;
+}
+
+.checkout{
+  width:100%;
+  height:80px;
+  margin-top:25px;
+  background:var(--black);
+  color:var(--cream);
+  border:0;
+  font-size:17px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:var(--black);
+  color:var(--cream);
+  padding:100px 8vw 45px;
+}
+
+.footer-logo{
+  font-size:clamp(70px,11vw,150px);
+  font-weight:900;
+  line-height:.8;
+  letter-spacing:-.07em;
+  margin-bottom:35px;
+}
+
+.footer-subtitle{
+  color:#aaa69b;
+  font-size:24px;
+  margin-bottom:80px;
+}
+
+.footer-nav{
+  display:flex;
+  gap:35px;
+  flex-wrap:wrap;
+  padding-bottom:35px;
+  border-bottom:1px solid #3a3934;
+}
+
+.footer-nav a{
+  font-size:19px;
+}
+
+.footer-nav a:hover{
+  color:var(--red);
+}
+
+.copyright{
+  color:#858178;
+  font-size:16px;
+  padding-top:30px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+  header{
+    height:105px;
+    padding:0 28px;
+  }
+
+  .logo{
+    font-size:37px;
+    letter-spacing:-2.8px;
+  }
+
+  .cart-button{
+    min-width:145px;
+    height:62px;
+    font-size:14px;
+  }
+
+  .cart-count{
+    width:42px;
+    height:42px;
+    top:-21px;
+    right:-18px;
+  }
+
+  .hero{
+    padding:75px 43px 90px;
+  }
+
+  .edition{
+    font-size:16px;
+    letter-spacing:3px;
+    margin-bottom:35px;
+  }
+
+  .hero-title{
+    font-size:clamp(100px,28vw,145px);
+    margin-left:-5px;
+    margin-bottom:55px;
+  }
+
+  .hero-description{
+    font-size:25px;
+    line-height:1.48;
+    margin-bottom:38px;
+  }
+
+  .hero-actions{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    margin-bottom:55px;
+  }
+
+  .primary-button,
+  .secondary-button{
+    min-height:96px;
+    font-size:16px;
+    padding:0 28px;
+  }
+
+  .primary-button{
+    width:65%;
+  }
+
+  .secondary-button{
+    width:48%;
+  }
+
+  .marquee{
+    height:88px;
+  }
+
+  .marquee-content{
+    font-size:23px;
+  }
+
+  .creators{
+    padding:100px 43px;
+  }
+
+  .section-label{
+    font-size:16px;
+  }
+
+  .section-title{
+    font-size:76px;
+  }
+
+  .section-description{
+    font-size:24px;
+  }
+
+  .creator-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+
+  .creator{
+    padding:23px;
+    min-height:360px;
+  }
+
+  .initials{
+    width:105px;
+    height:105px;
+    font-size:32px;
+    margin-bottom:28px;
+  }
+
+  .creator-name{
+    font-size:22px;
+  }
+
+  .creator-role{
+    font-size:13px;
+    line-height:1.5;
+  }
+
+  .product-section{
+    padding:90px 43px;
+  }
+
+  .product-layout{
+    display:block;
+  }
+
+  .product-gallery{
+    position:static;
+    margin-bottom:55px;
+  }
+
+  .product-label{
+    font-size:16px;
+  }
+
+  .product-title{
+    font-size:75px;
+  }
+
+  .product-description{
+    font-size:23px;
+  }
+
+  .product-price{
+    font-size:62px;
+  }
+
+  .sizes{
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+  }
+
+  .size{
+    height:70px;
+  }
+
+  .add-cart{
+    height:100px;
+  }
+
+  footer{
+    padding:85px 43px 35px;
+  }
+
+  .footer-logo{
+    font-size:85px;
+  }
+
+  .footer-subtitle{
+    font-size:20px;
+    margin-bottom:65px;
+  }
+
+  .footer-nav{
+    gap:22px;
+  }
+
+  .footer-nav a{
+    font-size:18px;
+  }
+}
+
+@media(max-width:420px){
+
+  .hero{
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  .creators,
+  .product-section,
+  footer{
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  .hero-title{
+    font-size:92px;
+  }
+
+  .hero-description{
+    font-size:21px;
+  }
+
+  .primary-button,
+  .secondary-button{
+    width:100%;
+  }
+
+  .section-title{
+    font-size:65px;
+  }
+
+  .product-title{
+    font-size:63px;
+  }
+
+  .creator{
+    padding:18px;
+  }
+
+  .initials{
+    width:80px;
+    height:80px;
+    font-size:26px;
+  }
+
+  .creator-name{
+    font-size:19px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">4Ushop</div>
+<!-- HEADER -->
+<header>
 
-    <nav>
-      <a href="#shop">SHOP</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-  </header>
+  <a href="#inicio" class="logo">
+    FOR YOU<span class="red-dot">.</span>
+  </a>
 
-  <main>
+  <button class="cart-button" onclick="openCart()">
+    CARRITO
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
 
-    <section class="hero">
-      <div class="hero-text">
-        <p>WELCOME TO 4USHOP</p>
+</header>
 
-        <h1>
-          MADE
-          <span>FOR YOU.</span>
-        </h1>
 
-        <p class="description">
-          Ropa urbana y streetwear creada para expresar tu propio estilo.
-        </p>
+<main id="inicio">
 
-        <a class="button" href="#shop">VER COLECCIÓN</a>
+<!-- HERO -->
+<section class="hero">
+
+  <div class="edition">
+    EDICIÓN 001 · 2026
+  </div>
+
+  <h1 class="hero-title">
+    <span>FOR</span>
+    <span>YOU</span>
+  </h1>
+
+  <p class="hero-description">
+    Una camiseta. Cuatro creadores. Marcos, Miguel, Gonzalo y Laura firman la primera pieza de la marca.
+  </p>
+
+  <div class="hero-actions">
+
+    <a href="#producto" class="primary-button">
+      COMPRAR AHORA
+    </a>
+
+    <a href="#creadores" class="secondary-button">
+      CONÓCELOS
+    </a>
+
+  </div>
+
+  <img
+    class="hero-image"
+    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"
+    alt="Campaña editorial FOR YOU Edición 001"
+  >
+
+  <p class="image-caption">
+    FOR YOU — EDICIÓN 001
+  </p>
+
+</section>
+
+
+<!-- MARQUEE -->
+<div class="marquee">
+
+  <div class="marquee-track">
+
+    <div class="marquee-content">
+      HECHO EN ESPAÑA <span class="star">✦</span>
+      FOR YOU <span class="star">✦</span>
+      EDICIÓN LIMITADA <span class="star">✦</span>
+    </div>
+
+    <div class="marquee-content">
+      HECHO EN ESPAÑA <span class="star">✦</span>
+      FOR YOU <span class="star">✦</span>
+      EDICIÓN LIMITADA <span class="star">✦</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- CREADORES -->
+<section class="creators" id="creadores">
+
+  <div class="section-label">
+    LOS CREADORES
+  </div>
+
+  <h2 class="section-title">
+    FIRMADO POR<br>
+    CUATRO
+  </h2>
+
+  <p class="section-description">
+    Cada camiseta lleva impreso el nombre de quienes la hicieron posible.
+    Un proyecto entre amigos, de Madrid para fuera.
+  </p>
+
+  <div class="creator-grid">
+
+    <article class="creator">
+
+      <div class="initials">
+        MD
       </div>
 
-      <div class="shirt" aria-label="Camiseta 4Ushop">
-        <div class="shirt-design">4U V3</div>
-      </div>
-    </section>
+      <h3 class="creator-name">
+        Marcos<br>
+        Domínguez
+      </h3>
 
-    <section id="shop">
-      <h2 class="section-title">SHOP</h2>
-
-      <div class="products">
-
-        <article class="product">
-          <div class="product-image" aria-label="Camiseta 4U V3">
-            <span>4U V3</span>
-          </div>
-
-          <div class="product-info">
-            <h3>4U V3 T-Shirt</h3>
-            <p class="price">29,99 €</p>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product-image" aria-label="Próximo producto 4Ushop">
-            <span>4U</span>
-          </div>
-
-          <div class="product-info">
-            <h3>Coming Soon</h3>
-            <p class="price">Próximamente</p>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product-image" aria-label="Próximo producto 4Ushop">
-            <span>4U</span>
-          </div>
-
-          <div class="product-info">
-            <h3>Coming Soon</h3>
-            <p class="price">Próximamente</p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="about" class="about">
-      <div class="about-content">
-        <h2>ABOUT 4USHOP</h2>
-
-        <p>
-          4Ushop es una marca de ropa urbana y streetwear creada para quienes
-          buscan diseños modernos, sencillos y diferentes. Nuestra idea es
-          crear prendas que puedas llevar a tu manera y que representen tu
-          propio estilo.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2>CONTACT</h2>
-
-      <p>
-        ¿Tienes alguna pregunta? Próximamente podrás contactar directamente
-        con 4Ushop.
+      <p class="creator-role">
+        CREADOR · FOR YOU
       </p>
 
-      <a class="button" href="#shop">VER 4USHOP</a>
-    </section>
+    </article>
 
-  </main>
 
-  <footer>
-    <span>© 2026 4Ushop</span>
-    <span>Made for you.</span>
-  </footer>
+    <article class="creator">
+
+      <div class="initials">
+        MH
+      </div>
+
+      <h3 class="creator-name">
+        Miguel<br>
+        Hernández
+      </h3>
+
+      <p class="creator-role">
+        CREADOR · FOR YOU
+      </p>
+
+    </article>
+
+
+    <article class="creator">
+
+      <div class="initials">
+        GG
+      </div>
+
+      <h3 class="creator-name">
+        Gonzalo<br>
+        González
+      </h3>
+
+      <p class="creator-role">
+        CREADOR · FOR YOU
+      </p>
+
+    </article>
+
+
+    <article class="creator">
+
+      <div class="initials">
+        LD
+      </div>
+
+      <h3 class="creator-name">
+        Laura Díaz de<br>
+        Sousa
+      </h3>
+
+      <p class="creator-role">
+        CREADORA · FOR YOU
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- PRODUCTO -->
+<section class="product-section" id="producto">
+
+  <div class="product-layout">
+
+    <!-- GALERÍA -->
+
+    <div class="product-gallery">
+
+      <img
+        id="mainProductImage"
+        class="main-product-image"
+        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=90"
+        alt="Camiseta FOR YOU Edición 001"
+      >
+
+      <div class="thumbnails">
+
+        <button
+          class="thumbnail active"
+          onclick="changeImage(this,'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=90')"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=85"
+            alt="Camiseta FOR YOU"
+          >
+        </button>
+
+        <button
+          class="thumbnail"
+          onclick="changeImage(this,'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=90')"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=85"
+            alt="Campaña FOR YOU"
+          >
+        </button>
+
+        <button
+          class="thumbnail"
+          onclick="changeImage(this,'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90')"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=85"
+            alt="Editorial FOR YOU"
+          >
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- INFORMACIÓN -->
+
+    <div class="product-information">
+
+      <div class="product-label">
+        EDICIÓN LIMITADA · 001
+      </div>
+
+      <h2 class="product-title">
+        CAMISETA<br>
+        FOR YOU
+      </h2>
+
+      <p class="product-description">
+        Algodón pesado de 240 g, corte oversize y serigrafía
+        “FOR YOU” delante y detrás. Creada a cuatro manos —
+        bueno, a ocho.
+      </p>
+
+      <div class="product-price">
+        10,00 €
+      </div>
+
+
+      <div class="size-header">
+
+        <strong>TALLA</strong>
+
+        <a href="#guia" class="size-guide">
+          Guía de tallas
+        </a>
+
+      </div>
+
+
+      <div class="sizes">
+
+        <button class="size" onclick="selectSize(this)">
+          XS
+        </button>
+
+        <button class="size" onclick="selectSize(this)">
+          S
+        </button>
+
+        <button class="size selected" onclick="selectSize(this)">
+          M
+        </button>
+
+        <button class="size" onclick="selectSize(this)">
+          L
+        </button>
+
+        <button class="size" onclick="selectSize(this)">
+          XL
+        </button>
+
+        <button class="size" onclick="selectSize(this)">
+          XXL
+        </button>
+
+      </div>
+
+
+      <button class="add-cart" onclick="addToCart()">
+        AÑADIR AL CARRITO — 10,00 €
+      </button>
+
+
+      <div class="product-info-list">
+
+        <p>
+          · Envío a toda España en 2–4 días laborables
+        </p>
+
+        <p>
+          · Devolución gratuita durante 30 días
+        </p>
+
+        <p>
+          · Producción limitada: solo 200 unidades
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-logo">
+    FOR YOU<span class="red-dot">.</span>
+  </div>
+
+  <p class="footer-subtitle">
+    Marcos · Miguel · Gonzalo · Laura
+  </p>
+
+  <nav class="footer-nav">
+
+    <a href="#producto">
+      La camiseta
+    </a>
+
+    <a href="#creadores">
+      Creadores
+    </a>
+
+    <a href="#inicio">
+      Inicio
+    </a>
+
+  </nav>
+
+  <p class="copyright">
+    © 2026 For You. Todos los derechos reservados.
+  </p>
+
+</footer>
+
+
+<!-- CARRITO -->
+
+<div class="cart-overlay" id="cartOverlay">
+
+  <div class="cart-panel">
+
+    <div class="cart-top">
+
+      <h2>CARRITO</h2>
+
+      <button class="close-cart" onclick="closeCart()">
+        ×
+      </button>
+
+    </div>
+
+    <div id="cartContent">
+
+      <p style="color:#68635A;">
+        Tu carrito está vacío.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let cart = [];
+let selectedSize = "M";
+
+
+/* CAMBIAR IMAGEN */
+
+function changeImage(button,url){
+
+  document
+    .getElementById("mainProductImage")
+    .src = url;
+
+  document
+    .querySelectorAll(".thumbnail")
+    .forEach(item => item.classList.remove("active"));
+
+  button.classList.add("active");
+
+}
+
+
+/* SELECCIONAR TALLA */
+
+function selectSize(button){
+
+  document
+    .querySelectorAll(".size")
+    .forEach(item => item.classList.remove("selected"));
+
+  button.classList.add("selected");
+
+  selectedSize = button.textContent.trim();
+
+}
+
+
+/* AÑADIR AL CARRITO */
+
+function addToCart(){
+
+  const existing = cart.find(
+    item => item.size === selectedSize
+  );
+
+  if(existing){
+
+    existing.quantity++;
+
+  }else{
+
+    cart.push({
+      name:"Camiseta FOR YOU",
+      price:10,
+      size:selectedSize,
+      quantity:1,
+      image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=85"
+    });
+
+  }
+
+  updateCart();
+
+  openCart();
+
+}
+
+
+/* ACTUALIZAR CARRITO */
+
+function updateCart(){
+
+  const count = cart.reduce(
+    (total,item) => total + item.quantity,
+    0
+  );
+
+  document
+    .getElementById("cartCount")
+    .textContent = count;
+
+
+  const container =
+    document.getElementById("cartContent");
+
+
+  if(cart.length === 0){
+
+    container.innerHTML =
+      '<p style="color:#68635A;">Tu carrito está vacío.</p>';
+
+    return;
+
+  }
+
+
+  let html = "";
+
+
+  cart.forEach((item,index)=>{
+
+    html += `
+
+      <div class="cart-item">
+
+        <img
+          src="${item.image}"
+          alt="${item.name}"
+        >
+
+        <div>
+
+          <h3>${item.name}</h3>
+
+          <p>
+            Talla ${item.size} · ${item.quantity} ud.
+          </p>
+
+          <strong>
+            ${(item.price * item.quantity).toFixed(2).replace(".",",")} €
+          </strong>
+
+          <br><br>
+
+          <button
+            class="remove"
+            onclick="removeItem(${index})"
+          >
+            Eliminar
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.price * item.quantity,
+      0
+    );
+
+
+  html += `
+
+    <div class="cart-total">
+
+      <span>TOTAL</span>
+
+      <span>
+        ${total.toFixed(2).replace(".",",")} €
+      </span>
+
+    </div>
+
+    <button
+      class="checkout"
+      onclick="checkout()"
+    >
+      CONTINUAR
+    </button>
+
+  `;
+
+
+  container.innerHTML = html;
+
+}
+
+
+/* ELIMINAR */
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+
+/* ABRIR */
+
+function openCart(){
+
+  document
+    .getElementById("cartOverlay")
+    .classList.add("open");
+
+}
+
+
+/* CERRAR */
+
+function closeCart(){
+
+  document
+    .getElementById("cartOverlay")
+    .classList.remove("open");
+
+}
+
+
+/* CHECKOUT */
+
+function checkout(){
+
+  alert(
+    "El sistema de pago se conectará próximamente."
+  );
+
+}
+
+
+/* CERRAR AL HACER CLICK FUERA */
+
+document
+  .getElementById("cartOverlay")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+
+      closeCart();
+
+    }
+
+  });
+
+
+/* ESC */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+
+    closeCart();
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>
